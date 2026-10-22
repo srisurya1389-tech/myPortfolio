@@ -9,10 +9,10 @@
     "cursor": {
       "enabled": true,
       "clickBurst": true,
-      "speed": 1,
+      "speed": 2,
       "size": 42,
-      "spacing": 38,
-      "maxParticles": 80,
+      "spacing": 44,
+      "maxParticles": 50,
       "colorA": "#e8233a",
       "colorB": "#0b0a0e",
       "icons": [

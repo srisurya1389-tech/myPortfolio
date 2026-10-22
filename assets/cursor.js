@@ -6,8 +6,10 @@
    ===================================================================== */
 var CursorTrail = (function () {
   var TAU = Math.PI * 2;
-  var FLOAT = .006, MAX_STEPS = 40;  // ponytail: caps spawns per mouse event so a big jump can't stall a frame
-  var MAX_INHERIT_SPEED = 25;        // px per frame; caps the mouse speed particles inherit, so jerks don't fling them
+  var FLOAT = .004, MAX_STEPS = 40;  // ponytail: caps spawns per mouse event so a big jump can't stall a frame
+  var MAX_INHERIT_SPEED = 1.2;       // px per frame; caps the mouse speed particles inherit, so jerks don't fling them
+  var MIN_GAP = 22;                  // px between badges even when moving fast
+  var BURST_DAMP = .9;
 
   // 24×24 line glyphs (SVG path data). Drawn stroked, in the symbol colour.
   var GLYPH_D = {
@@ -104,9 +106,9 @@ var CursorTrail = (function () {
     items.forEach(function (it, i) { sprites[i + '|0'] = badge(i, 0); sprites[i + '|1'] = badge(i, 1); });
   }
 
-  function spawn(x, y, vx, vy, life) {
+  function spawn(x, y, vx, vy, life, damp) {
     var n = seq++, idx = n % items.length, scheme = Math.floor(n / items.length) % 2;
-    parts.push({ x: x, y: y, vx: vx, vy: vy, life: life, age: 0, key: idx + '|' + scheme });
+    parts.push({ x: x, y: y, vx: vx, vy: vy, life: life, age: 0, damp: damp, key: idx + '|' + scheme });
     if (parts.length > cfg.maxParticles) parts.splice(0, parts.length - cfg.maxParticles);
     kick();
   }
@@ -125,28 +127,28 @@ var CursorTrail = (function () {
     if (sp > MAX_INHERIT_SPEED) { smx *= MAX_INHERIT_SPEED / sp; smy *= MAX_INHERIT_SPEED / sp; }
     var pos = 0, steps = 0;
     while (pos < d && steps < MAX_STEPS) {
-      var gap = Math.max(16, cfg.spacing / (1 + pace * .5));
+      var gap = Math.max(Math.min(MIN_GAP, cfg.spacing), cfg.spacing / (1 + pace * .5));
       var need = Math.max(0, gap - carry);
       if (pos + need > d) { carry += d - pos; return; }
       pos += need; carry = 0; steps++;
-      var f = pos / d, k = rnd(.04, .11) * cfg.inherit;
-      spawn(px + dx * f, py + dy * f, smx * k, smy * k, rnd(1200, 1900));   // exactly on the mouse path, no sideways spread
+      var f = pos / d, k = rnd(.6, 1) * cfg.inherit;   // at most 5% of the mouse velocity at speed 1
+      spawn(px + dx * f, py + dy * f, smx * k, smy * k, rnd(1400, 2000), cfg.damp);   // exactly on the mouse path, no sideways spread
     }
     carry = 0;
   }
 
   function burst(x, y) {
-    var n = 5 + ((Math.random() * 4) | 0);
+    var n = 6;
     for (var i = 0; i < n; i++) {
-      var a = i / n * TAU + rnd(-.2, .2), sp = rnd(2.2, 3.4);
-      spawn(x, y, Math.cos(a) * sp, Math.sin(a) * sp, rnd(600, 800));
+      var a = i / n * TAU + rnd(-.2, .2), sp = rnd(1.5, 2);
+      spawn(x, y, Math.cos(a) * sp, Math.sin(a) * sp, 700, BURST_DAMP);
     }
   }
 
   function draw(p) {
     var t = p.age / p.life, s, a;
     if (t < .15) { var u = t / .15; s = .6 + .4 * (1 - Math.pow(1 - u, 3)); }   // ease-out from 0.6 to 1
-    else s = 1 - .45 * (t - .15) / .85;                                          // then a slow shrink
+    else s = 1 - .3 * (t - .15) / .85;                                           // then a slow shrink to 70%
     a = t < .6 ? 1 : 1 - (t - .6) / .4;                                          // fade out at the end
     var sz = cfg.size * Math.max(0, s);                                          // no size jitter: every badge is the same size
     ctx.save();
@@ -158,12 +160,13 @@ var CursorTrail = (function () {
 
   function frame(t) {
     var dt = Math.min(.05, (t - lastT) / 1000), f = dt * 60; lastT = t;   // f = frames elapsed, so motion is frame-rate independent
-    var decay = Math.pow(cfg.damp, f), alive = [];
+    var alive = [];
     ctx.clearRect(0, 0, W, H);
     for (var i = 0; i < parts.length; i++) {
       var p = parts[i];
       p.age += dt * 1000;
       if (p.age >= p.life) continue;
+      var decay = Math.pow(p.damp, f);
       p.vx *= decay; p.vy = p.vy * decay - FLOAT * f;   // slight upward float
       p.x += p.vx * f; p.y += p.vy * f;
       draw(p); alive.push(p);
@@ -190,14 +193,14 @@ var CursorTrail = (function () {
     if (!window.matchMedia('(pointer: fine)').matches) return;               // touch / coarse pointers: off
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    var k = (num(o.speed, 1, 1, 10) - 1) / 9;                              // 0 = calm, 1 = lively
+    var k = (num(o.speed, 2, 1, 10) - 1) / 9;                              // 0 = calm, 1 = lively
     cfg = {
       clickBurst: o.clickBurst !== false,
       size: num(o.size, 42, 24, 72),
-      spacing: num(o.spacing, 38, 16, 80),
-      maxParticles: num(o.maxParticles, 80, 10, 200),
-      inherit: 1 + 1.5 * k,                                                 // how much mouse velocity particles pick up
-      damp: .9 + .07 * k,                                                   // per-frame velocity damping
+      spacing: num(o.spacing, 44, 16, 80),
+      maxParticles: num(o.maxParticles, 50, 10, 200),
+      inherit: .05 * (1 + 1.5 * k),                                         // share of mouse velocity particles pick up (5% at speed 1)
+      damp: .88 + .08 * k,                                                  // per-frame velocity damping
       colorA: o.colorA || '#e8233a', colorB: o.colorB || '#0b0a0e'
     };
     items = normIcons(o.icons);
