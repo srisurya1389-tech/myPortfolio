@@ -11,6 +11,7 @@
   var SECTION_IDS = ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'];
   var SECTION_NAMES = { story: 'Résumé (The Full Story)', moments: 'Achievements', skills: 'Skills', originals: 'Projects (Originals)', about: 'About me', journey: 'Journey', picks: 'Top picks' };
   var ICONS = ['orbit', 'people', 'leaf', 'code', 'shield', 'chart', 'cart', 'phone', 'brain', 'cube', 'game', 'heart'];
+  var GLYPH_NAMES = ['camera', 'chat', 'bulb', 'bolt', 'briefcase', 'code', 'search', 'notebook', 'sparkles', 'question', 'rocket', 'heart', 'star', 'smile', 'music', 'play'];
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
@@ -193,13 +194,24 @@
         { p: 'site.grain', l: 'Film grain overlay', t: 'toggle' }
       ]},
       { t: 'group', l: 'Cursor trail (desktop only)', fields: [
-        { p: 'site.cursor.enabled', l: 'Show the icon trail behind the mouse', t: 'toggle', wide: true },
-        { p: 'site.cursor.clickBurst', l: 'Burst of icons on click', t: 'toggle', wide: true },
-        { p: 'site.cursor.spacing', l: 'Density', t: 'range', min: 6, max: 60, h: 'Lower = more icons per movement.' },
-        { p: 'site.cursor.size', l: 'Icon size (px)', t: 'range', min: 16, max: 64 },
-        { p: 'site.cursor.maxParticles', l: 'Maximum icons on screen', t: 'range', min: 20, max: 300 },
-        { p: 'site.cursor.colors', l: 'Circle colours', t: 'tags', wide: true, h: 'Hex colours such as #e8233a. Press Enter after each one.' },
-        { p: 'site.cursor.icons', l: 'Icons', t: 'tags', wide: true, h: 'Any of: code, star, heart, bolt, sparkle, play, music, smile, cube, rocket, terminal, chat' }
+        { p: 'site.cursor.enabled', l: 'Show the symbol trail behind the mouse', t: 'toggle', wide: true },
+        { p: 'site.cursor.clickBurst', l: 'Burst of symbols on click', t: 'toggle', wide: true },
+        { p: 'site.cursor.speed', l: 'Speed', t: 'range', min: 1, max: 10, h: '1 = calm, 10 = lively. Changes how far symbols drift and how long they keep moving.' },
+        { p: 'site.cursor.size', l: 'Circle size (px)', t: 'range', min: 24, max: 72 },
+        { p: 'site.cursor.spacing', l: 'Spacing (px)', t: 'range', min: 16, max: 80, h: 'Gap between symbols when moving slowly. Fast movement packs them tighter.' },
+        { p: 'site.cursor.maxParticles', l: 'Max badges on screen', t: 'range', min: 10, max: 200 },
+        { p: 'site.cursor.colorA', l: 'Colour A (red)', t: 'color', h: 'Circle colour on every other symbol.' },
+        { p: 'site.cursor.colorB', l: 'Colour B (black)', t: 'color', h: 'Circle colour on the others. Symbols alternate between the two.' },
+        { p: 'site.cursor.icons', l: 'Cursor symbols', t: 'list', wide: true,
+          title: function (x) { return (x.label || x.name || 'Symbol') + (x.show === false ? '  (hidden)' : ''); },
+          add: { name: 'new-symbol', glyph: 'star', label: 'NEW', src: '', show: true },
+          fields: [
+            { p: 'name', l: 'Name', t: 'text', h: 'Short ID, e.g. instagram' },
+            { p: 'label', l: 'Text fallback', t: 'text', h: 'Shown only when there is no image and no symbol.' },
+            { p: 'glyph', l: 'Symbol', t: 'select', options: GLYPH_NAMES, h: 'Built-in line icon, used when there is no image.' },
+            { p: 'src', l: 'Image (optional)', t: 'image', wide: true, max: 512, h: 'SVG or PNG. Overrides the symbol. Logo files can also go in assets/cursor-icons/.' },
+            { p: 'show', l: 'Show in the trail', t: 'toggle', wide: true }
+          ] }
       ]},
       { t: 'group', l: 'Search & sharing', fields: [
         { p: 'site.title', l: 'Browser tab title', t: 'text', wide: true, h: '{name} is replaced' },

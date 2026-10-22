@@ -13,7 +13,8 @@ portfolio/
 ├── assets/
 │   ├── site.css        ← design
 │   ├── site.js         ← animations, sound, rendering
-│   └── cursor.js       ← icon trail that follows the mouse (desktop only)
+│   ├── cursor.js       ← symbol trail that follows the mouse (desktop only)
+│   └── cursor-icons/   ← optional logo files for the trail (see its README.txt)
 ├── images/             ← your uploaded photos go here
 ├── admin/
 │   ├── index.html      ← admin panel
@@ -105,7 +106,7 @@ From now on, every change saved to the repo redeploys the site automatically.
 | Top picks | Ranked cards (1–5), which section each one opens |
 | Contact & footer | "To be continued…" text, button label, last line, footer |
 | Section titles & cards | Every heading, menu name and episode card, and **hide any section** |
-| Theme & SEO | Accent colour, gold colour, film grain, **cursor trail** (on/off, click burst, density, size, max icons, circle colours, icons), browser tab title, Google description |
+| Theme & SEO | Accent colour, gold colour, film grain, **cursor trail** (on/off, click burst, speed, circle size, spacing, max badges, colour A and B, and the symbol list: rename, reorder, hide, pick a symbol, or upload a logo), browser tab title, Google description |
 
 **How it works:**
 - Every change is saved automatically **in your browser** as a draft. The preview on the right shows it live (use the Desktop/Phone switch to check both).

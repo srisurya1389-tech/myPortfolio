@@ -9,11 +9,30 @@
     "cursor": {
       "enabled": true,
       "clickBurst": true,
-      "spacing": 26,
-      "size": 34,
-      "maxParticles": 140,
-      "colors": ["#e8233a", "#d9ad55", "#7b3fe4", "#2c94c9", "#22a565", "#ff5468"],
-      "icons": ["code", "star", "heart", "bolt", "sparkle", "play", "music", "smile", "cube", "rocket", "terminal", "chat"]
+      "speed": 1,
+      "size": 42,
+      "spacing": 38,
+      "maxParticles": 80,
+      "colorA": "#e8233a",
+      "colorB": "#0b0a0e",
+      "icons": [
+        { "name": "instagram", "glyph": "camera", "label": "IG", "src": "assets/cursor-icons/instagram.svg", "show": true },
+        { "name": "chatgpt", "glyph": "chat", "label": "GPT", "src": "assets/cursor-icons/openai.svg", "show": true },
+        { "name": "claude", "glyph": "bulb", "label": "CL", "src": "assets/cursor-icons/claude.svg", "show": true },
+        { "name": "grok", "glyph": "bolt", "label": "GK", "src": "assets/cursor-icons/grok.svg", "show": true },
+        { "name": "linkedin", "glyph": "briefcase", "label": "LI", "src": "assets/cursor-icons/linkedin.svg", "show": true },
+        { "name": "github", "glyph": "code", "label": "GH", "src": "assets/cursor-icons/github.svg", "show": true },
+        { "name": "deepseek", "glyph": "search", "label": "DS", "src": "assets/cursor-icons/deepseek.svg", "show": true },
+        { "name": "notebooklm", "glyph": "notebook", "label": "NB", "src": "assets/cursor-icons/notebooklm.svg", "show": true },
+        { "name": "gemini", "glyph": "sparkles", "label": "GM", "src": "assets/cursor-icons/gemini.svg", "show": true },
+        { "name": "perplexity", "glyph": "question", "label": "PX", "src": "assets/cursor-icons/perplexity.svg", "show": true },
+        { "name": "copilot", "glyph": "rocket", "label": "CP", "src": "assets/cursor-icons/copilot.svg", "show": true },
+        { "name": "heart", "glyph": "heart", "label": "", "src": "", "show": false },
+        { "name": "star", "glyph": "star", "label": "", "src": "", "show": false },
+        { "name": "smile", "glyph": "smile", "label": "", "src": "", "show": false },
+        { "name": "music", "glyph": "music", "label": "", "src": "", "show": false },
+        { "name": "play", "glyph": "play", "label": "", "src": "", "show": false }
+      ]
     }
   },
   "intro": {
