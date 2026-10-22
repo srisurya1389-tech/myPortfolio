@@ -17,9 +17,7 @@ portfolio/
 │   └── cursor-icons/   ← optional logo files for the trail (see its README.txt)
 ├── images/             ← your uploaded photos go here
 ├── admin/
-│   ├── index.html      ← admin panel
-│   ├── admin.css
-│   └── admin.js
+│   └── index.html      ← admin panel (styles and script are inside this one file)
 └── README.md
 ```
 
