@@ -1,0 +1,163 @@
+{
+  "site": {
+    "title": "Your Name: The Series",
+    "description": "Portfolio of Your Name, full-stack developer working on AI/ML and 3D web.",
+    "accent": "#e8233a",
+    "gold": "#d9ad55",
+    "brandSuffix": "SERIES",
+    "grain": true,
+    "cursor": {
+      "enabled": true,
+      "clickBurst": true,
+      "spacing": 26,
+      "size": 34,
+      "maxParticles": 140,
+      "colors": ["#e8233a", "#d9ad55", "#7b3fe4", "#2c94c9", "#22a565", "#ff5468"],
+      "icons": ["code", "star", "heart", "bolt", "sparkle", "play", "music", "smile", "cube", "rocket", "terminal", "chat"]
+    }
+  },
+  "intro": {
+    "seriesText": "THE SERIES",
+    "playLabel": "Play",
+    "skipLabel": "Skip intro",
+    "enabled": true
+  },
+  "me": {
+    "name": "Your Name",
+    "fullName": "Your Full Name",
+    "initials": "YN",
+    "role": "Full-Stack Developer · AI / ML",
+    "photo": "",
+    "bio": "A B.Tech student building AI-powered web apps, real-time 3D experiences and tools that solve real problems. Currently learning Three.js and shipping projects at hackathons.",
+    "meta": {
+      "match": "98% Match",
+      "badge": "AI/ML",
+      "years": "2023 – Present",
+      "degree": "B.Tech CSE",
+      "originals": "3 Originals",
+      "certs": "8 Certifications"
+    },
+    "email": "you@example.com",
+    "links": {
+      "github": "https://github.com/",
+      "linkedin": "https://linkedin.com/",
+      "resume": "#story",
+      "instagram": ""
+    }
+  },
+  "billboard": {
+    "playIntroLabel": "Play intro",
+    "resumeLabel": "View résumé",
+    "continueTitle": "Continue Exploring"
+  },
+  "who": {
+    "title": "Who's watching?",
+    "note": "Every profile watches the same true story of {name}. It only changes what plays first."
+  },
+  "profiles": [
+    { "id": "main", "name": "", "letter": "", "tag": "MAIN", "desc": "The full series, in order", "c1": "#7a1020", "c2": "#e8233a", "usePhoto": true, "order": ["story", "moments", "skills", "originals", "about", "journey", "picks"] },
+    { "id": "rec", "name": "Recruiter", "letter": "R", "tag": "", "desc": "Resume, achievements & skills first", "c1": "#1f5b8a", "c2": "#5fb2d8", "usePhoto": false, "order": ["story", "moments", "skills", "journey", "originals", "about", "picks"] },
+    { "id": "dev", "name": "Developer", "letter": "</>", "tag": "", "desc": "Projects, stack & Originals first", "c1": "#1b7a43", "c2": "#4cc77f", "usePhoto": false, "order": ["originals", "skills", "picks", "story", "journey", "moments", "about"] },
+    { "id": "fan", "name": "Explorer", "letter": "★", "tag": "", "desc": "Story, journey & top picks first", "c1": "#9a5a0a", "c2": "#f0a830", "usePhoto": false, "order": ["about", "journey", "picks", "originals", "moments", "story", "skills"] }
+  ],
+  "sections": {
+    "story":     { "nav": "Resume",    "ep": "Episode 01", "card": "The Full Story",  "cardSub": "Résumé, education & experience", "c1": "#2a1050", "c2": "#7b3fe4", "w": "CV",  "progress": 78, "eyebrow": "The Screenplay",          "title": "The Full Story",       "note": "The whole résumé, on one page." },
+    "moments":   { "nav": "Moments",   "ep": "Episode 02", "card": "My Achievements", "cardSub": "Awards & certifications",        "c1": "#5c0b18", "c2": "#e8233a", "w": "★",   "progress": 52, "eyebrow": "Award Season",            "title": "Top Moments",          "note": "Recognition earned along the way." },
+    "skills":    { "nav": "Skills",    "ep": "Episode 03", "card": "My Skills",       "cardSub": "The skill universe",             "c1": "#0b3550", "c2": "#2c94c9", "w": "{ }", "progress": 34, "eyebrow": "Genres",                  "title": "My Skill Universe",    "note": "Pick a genre to see what is in it." },
+    "originals": { "nav": "Originals", "ep": "Episode 04", "card": "My Projects",     "cardSub": "Original productions",           "c1": "#6b0f1d", "c2": "#ff5468", "w": "▶",   "progress": 64, "eyebrow": "Only on this series",     "title": "Originals",            "note": "Projects I designed and built from scratch." },
+    "about":     { "nav": "About",     "ep": "Episode 05", "card": "About Me",        "cardSub": "The pilot",                      "c1": "#3a2a0a", "c2": "#c2902a", "w": "Hi",  "progress": 20, "eyebrow": "The Pilot",               "title": "About Me",             "note": "" },
+    "journey":   { "nav": "Journey",   "ep": "Episode 06", "card": "My Journey",      "cardSub": "Season one, so far",             "c1": "#0f3a2a", "c2": "#2aa572", "w": "S1",  "progress": 88, "eyebrow": "Season 1",                "title": "My Journey",           "note": "How the story got here, one episode at a time." },
+    "picks":     { "nav": "Top Picks", "ep": "Episode 07", "card": "Top Picks",       "cardSub": "The top 5, ranked",              "c1": "#3a0f3a", "c2": "#b23ab2", "w": "#1",  "progress": 45, "eyebrow": "Top 5 · from the résumé", "title": "{name}'s Top Picks",   "note": "" }
+  },
+  "story": {
+    "education": [
+      { "t": "B.Tech, Computer Science", "w": "Your College, City", "y": "2023 – 2027", "d": "CGPA 9.0 / 10 · Core: DSA, DBMS, OS, ML" },
+      { "t": "Higher Secondary (MPC)", "w": "Your Junior College", "y": "2021 – 2023", "d": "Scored 96%" }
+    ],
+    "experience": [
+      { "t": "Web Development Intern", "w": "Company Name", "y": "Summer 2025", "d": "Built a React dashboard used by 200+ staff; cut page load time by 40%." },
+      { "t": "Tech Lead, Coding Club", "w": "Your College", "y": "2024 – Now", "d": "Run weekly workshops on web dev and Git for 120 members." }
+    ],
+    "highlights": [
+      { "t": "Smart India Hackathon", "w": "Finalist", "y": "2024", "d": "Built a crop-disease detector in 36 hours." },
+      { "t": "Open Source", "w": "GitHub", "y": "2024 – Now", "d": "Contributions to 5 public repositories." }
+    ],
+    "skills": [
+      { "t": "Languages", "w": "Java · Python · JavaScript", "y": "", "d": "" },
+      { "t": "Web", "w": "React · Node.js · Three.js", "y": "", "d": "" }
+    ],
+    "kpis": [
+      { "value": "9.0", "label": "CGPA" },
+      { "value": "12+", "label": "Projects" },
+      { "value": "3", "label": "Hackathons" }
+    ],
+    "sideTitle": "Every episode, on one page",
+    "sideText": "The short version for busy recruiters.",
+    "buttonLabel": "Open résumé"
+  },
+  "moments": [
+    { "t": "Hackathon Finalist", "by": "Smart India Hackathon", "y": "2024", "d": "Top 5 of 300+ teams nationally" },
+    { "t": "Branch Topper", "by": "Your College", "y": "2024", "d": "Highest CGPA in CSE, year 2" },
+    { "t": "Tech Fellow", "by": "Fellowship Name", "y": "2025", "d": "Selected from 2,000+ applicants" },
+    { "t": "500+ Problems", "by": "LeetCode", "y": "2025", "d": "Solved across DSA topics" },
+    { "t": "5-Star Coder", "by": "HackerRank", "y": "2024", "d": "Problem solving badge" }
+  ],
+  "certs": [
+    { "org": "Google", "t": "Data Analytics Professional", "y": "2025", "url": "" },
+    { "org": "AWS", "t": "Cloud Practitioner", "y": "2025", "url": "" },
+    { "org": "Meta", "t": "Front-End Developer", "y": "2024", "url": "" },
+    { "org": "NPTEL", "t": "Database Management Systems", "y": "2024", "url": "" },
+    { "org": "NPTEL", "t": "Fundamentals of AI", "y": "2024", "url": "" },
+    { "org": "Coursera", "t": "Machine Learning Specialization", "y": "2024", "url": "" },
+    { "org": "freeCodeCamp", "t": "Responsive Web Design", "y": "2023", "url": "" },
+    { "org": "Oracle", "t": "Java Foundations", "y": "2023", "url": "" }
+  ],
+  "skills": [
+    { "name": "Languages", "sub": "The primary language set", "items": [ { "name": "Java", "level": 5 }, { "name": "Python", "level": 4 }, { "name": "JavaScript", "level": 5 }, { "name": "C", "level": 3 } ] },
+    { "name": "Frontend", "sub": "Interfaces & the web platform", "items": [ { "name": "React", "level": 4 }, { "name": "Three.js", "level": 3 }, { "name": "HTML & CSS", "level": 5 }, { "name": "Tailwind", "level": 4 } ] },
+    { "name": "Backend", "sub": "Server-side logic", "items": [ { "name": "Node.js", "level": 4 }, { "name": "Express", "level": 4 }, { "name": "Flask", "level": 3 } ] },
+    { "name": "Infra & Tools", "sub": "Shipping & architecture", "items": [ { "name": "Git", "level": 5 }, { "name": "Docker", "level": 3 }, { "name": "Linux", "level": 3 }, { "name": "Figma", "level": 4 }, { "name": "Vercel", "level": 4 } ] },
+    { "name": "Databases", "sub": "Indexing & normalization", "items": [ { "name": "MongoDB", "level": 4 }, { "name": "MySQL", "level": 4 }, { "name": "Firebase", "level": 3 } ] },
+    { "name": "CS Fundamentals", "sub": "The foundations", "items": [ { "name": "DSA", "level": 4 }, { "name": "OOP", "level": 5 }, { "name": "DBMS", "level": 4 }, { "name": "OS", "level": 3 }, { "name": "Networks", "level": 3 } ] },
+    { "name": "Interests", "sub": "Coming soon to the series", "items": [ { "name": "3D Web", "level": 4 }, { "name": "GenAI", "level": 3 }, { "name": "UI Motion", "level": 4 } ] }
+  ],
+  "originals": [
+    { "t": "Nebula Explorer", "g": "Three.js · Real-time 3D", "d": "An interactive galaxy you can fly through, with 50,000 particles running smoothly in the browser.", "stack": ["Three.js", "GLSL", "Vite"], "c1": "#1a0f3d", "c2": "#6c3cff", "icon": "orbit", "image": "", "demo": "#", "code": "#", "demoLabel": "Watch demo", "codeLabel": "Source code" },
+    { "t": "Campus Connect", "g": "Full-stack · Hackathon build", "d": "Helps students find study groups and share notes across departments. Built in 36 hours with a team of four.", "stack": ["React", "Node.js", "MongoDB"], "c1": "#3d0d14", "c2": "#e8233a", "icon": "people", "image": "", "demo": "#", "code": "#", "demoLabel": "Watch demo", "codeLabel": "Source code" },
+    { "t": "Crop Doctor", "g": "Machine learning · Mobile web", "d": "Upload a leaf photo and get a plant-disease prediction with treatment tips in your language. 92% accuracy on test data.", "stack": ["Python", "Flask", "TensorFlow"], "c1": "#0c2a1b", "c2": "#22a565", "icon": "leaf", "image": "", "demo": "#", "code": "#", "demoLabel": "Watch demo", "codeLabel": "Source code" }
+  ],
+  "about": {
+    "quote": "I build things that feel *alive* on the screen: fast, playful, and actually useful.",
+    "photo": "",
+    "facts": [
+      { "label": "Based in", "value": "Your City, India" },
+      { "label": "Studying", "value": "B.Tech CSE, 3rd year" },
+      { "label": "Currently", "value": "Learning shaders & GenAI" },
+      { "label": "Off-screen", "value": "Cricket, sketching, chai" }
+    ]
+  },
+  "journey": [
+    { "ep": "E01", "y": "2021", "t": "The Pilot", "d": "Wrote my first line of code: a calculator in C that only added numbers.", "c1": "#2b1838", "c2": "#6b2a6e", "p": 100 },
+    { "ep": "E02", "y": "2023", "t": "Into the Web", "d": "Joined college, discovered HTML and CSS, and built my first website.", "c1": "#3a1420", "c2": "#a4223a", "p": 100 },
+    { "ep": "E03", "y": "2024", "t": "The Hackathon", "d": "Reached the Smart India Hackathon finals with Crop Doctor.", "c1": "#3b2509", "c2": "#c27c1a", "p": 100 },
+    { "ep": "E04", "y": "2025", "t": "The Builder", "d": "Interned as a web developer and started building in 3D.", "c1": "#0d2236", "c2": "#2178b8", "p": 70 },
+    { "ep": "E05", "y": "Next", "t": "Coming Soon", "d": "Looking for internships and freelance work. Your company could be in this episode.", "c1": "#1d1b22", "c2": "#3a3640", "p": 5 }
+  ],
+  "picks": [
+    { "t": "Hackathon Finalist", "s": "Achievement", "link": "moments", "c1": "#7a1020", "c2": "#e8233a", "badge": true },
+    { "t": "Nebula Explorer", "s": "Original", "link": "originals", "c1": "#1a0f3d", "c2": "#6c3cff", "badge": true },
+    { "t": "Branch Topper", "s": "Academics", "link": "moments", "c1": "#5a3c0b", "c2": "#d9ad55", "badge": false },
+    { "t": "Crop Doctor", "s": "Original", "link": "originals", "c1": "#0c2a1b", "c2": "#22a565", "badge": false },
+    { "t": "Web Dev Intern", "s": "Experience", "link": "story", "c1": "#0d2236", "c2": "#2178b8", "badge": false }
+  ],
+  "contact": {
+    "eyebrow": "The Next Season",
+    "title": "To be continued",
+    "ctaLabel": "Let's build: copy email",
+    "nextLine": "Next episode: you."
+  },
+  "footer": {
+    "left": "© 2026 {fullName}",
+    "right": "Built with HTML, CSS & JavaScript"
+  }
+}

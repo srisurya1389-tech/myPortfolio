@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+.vercel/
+photos-inbox/done/
+*.log
+.env

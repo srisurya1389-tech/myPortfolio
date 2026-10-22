@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio</title>
+<meta name="description" content="Portfolio">
+<meta name="theme-color" content="#0b0a0e">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Portfolio">
+<meta property="og:description" content="Portfolio">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b0a0e'/%3E%3Cpath d='M24 16l24 16-24 16z' fill='%23e8233a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="loading" id="loading">Loading…</div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ COLD OPEN ============ -->
+<div id="intro" role="dialog" aria-label="Intro">
+  <div class="glow"></div>
+  <div class="i-stack">
+    <h1 class="i-name" id="iName"></h1>
+    <div class="i-series" id="iSeries">THE SERIES</div>
+  </div>
+  <div class="i-rise"><div class="ph" data-photo="intro"></div></div>
+  <div class="i-role" id="iRole"></div>
+  <button class="i-play" id="iPlay" type="button"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg><span id="iPlayLbl">Play</span></button>
+</div>
+<button class="skip" id="skip" type="button">Skip intro</button>
+
+<!-- ============ WHO'S WATCHING ============ -->
+<div id="who" class="gone" role="dialog" aria-label="Choose a profile">
+  <h2 id="whoTitle">Who's watching?</h2>
+  <div class="profiles" id="profiles"></div>
+  <p class="who-note" id="whoNote"></p>
+</div>
+
+<!-- ============ HOME ============ -->
+<nav class="top in" id="nav">
+  <a class="brand" href="#home"><b id="navLogo">YN</b><span id="navSub">SERIES</span></a>
+  <ul class="links" id="links"></ul>
+  <div class="nav-r">
+    <button class="icon-btn" id="soundBtn" type="button" aria-label="Sound off"></button>
+    <button class="me" id="meBtn" type="button" aria-label="Switch profile"><i id="meAv"></i><small>Switch</small></button>
+  </div>
+</nav>
+
+<main id="home">
+  <header class="bill in" id="bill">
+    <div class="bg"></div>
+    <div class="art" id="art"><div class="ph" data-photo="bill"></div></div>
+    <div class="copy" id="billCopy"></div>
+    <div class="age">Profile: <b id="ageProf">Main</b></div>
+  </header>
+
+  <div class="lift">
+    <h2 class="h-row in" id="cwTitle">Continue Exploring</h2>
+    <div class="row-wrap"><div class="row" id="cwRow"></div></div>
+  </div>
+
+  <div id="sections"></div>
+
+  <section class="end in" id="contact"></section>
+  <footer class="in" id="foot"></footer>
+</main>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="assets/cursor.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
